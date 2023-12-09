@@ -43,6 +43,7 @@ def handle_client(client, source_ip):
 
 # 创建一个服务器对象，绑定0.0.0.0地址和22端口
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 server.bind(('0.0.0.0', 22))
 
 # 开始监听
